@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && gh-pages -d dist -r https://github.com/artur-ballod/emp-test.git"
   },
   "devDependencies": {
     "@mish.dev/vite-convert-pug-in-html": "^2.0.0",
