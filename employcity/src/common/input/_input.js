@@ -32,7 +32,7 @@ export class RangeInput {
 }
 
 export class FileUpload {
-    constructor(fileInputId = 'order-file', uploadButtonSelector = '.input__upload', fileNameSelector = '.input__filename', removeButtonSelector = '.input__remove') {
+    constructor(fileInputId = 'order-file', uploadButtonSelector = '.input--upload', fileNameSelector = '.input__filename', removeButtonSelector = '.input__remove') {
         this.fileInput = document.getElementById(fileInputId);
         this.uploadButton = document.querySelector(uploadButtonSelector);
         this.fileName = document.querySelector(fileNameSelector);
@@ -58,17 +58,16 @@ export class FileUpload {
 
     destroy() {
         if (!this.fileInput || !this.uploadButton || !this.fileName || !this.removeButton) return;
-
         this.uploadButton.removeEventListener('click', this.handleUploadButtonClick);
         this.fileInput.removeEventListener('change', this.handleFileChange);
         this.removeButton.removeEventListener('click', this.handleRemoveButtonClick);
     }
 
-    handleUploadButtonClick() {
-        this.fileInput.click();
+    handleUploadButtonClick(event) {
+        this.uploadButton.click();
     }
 
-    handleFileChange() {
+    handleFileChange(event) {
         if (this.fileInput.files.length > 0) {
             this.fileName.textContent = this.fileInput.files[0].name;
             this.removeButton.classList.add('is-active');
@@ -78,7 +77,7 @@ export class FileUpload {
         }
     }
 
-    handleRemoveButtonClick() {
+    handleRemoveButtonClick(event) {
         this.fileInput.value = '';
         this.fileName.textContent = '';
         this.removeButton.classList.remove('is-active');

@@ -11,6 +11,8 @@ export default defineConfig({
 		port: 3001,
 	},
 
+	// base: '/emp-test/',
+
 	plugins: [
 		viteConvertPugInHtml(),
 		imagePresets({
@@ -58,9 +60,14 @@ export default defineConfig({
         `,
 			},
 		},
+
+		lightningcss: {
+          targets: 'current',
+        },
 	},
 
 	build: {
+		cssMinify: 'lightningcss',
 		outDir: '../dist',
 		assetsDir: 'assets',
 	},
