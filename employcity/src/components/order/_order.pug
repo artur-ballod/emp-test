@@ -1,0 +1,14 @@
+include @/common/step-list/_step-list
+include @/common/form/_form
+
+mixin orderForm()
+  - const orderSteps = [{ icon: 'search', name: 'Lorem ipsum dolorsit amet' }, { icon: 'percent', name: 'Сonsecteturadipiscing elit' }, { icon: 'list', name: 'Sed do eiusmod tempor' }, { icon: 'envelope', name: 'Esse cillum doloreeu fugiat' }, { icon: 'money', name: 'Excepteur sint occaecat cupidatat non proident' }]
+  - const selectList = [{ value: 'option1', name: 'Вариант 1' }, { value: 'option2', name: 'Вариант 2' }, { value: 'option3', name: 'Вариант 3' }, { value: 'option4', name: 'Вариант 4' }, { value: 'option5', name: 'Вариант 5' }, { value: 'option6', name: 'Вариант 6' }, { value: 'option7', name: 'Вариант 7' }]
+  - const orderFields = [{ type: 'select', name: 'option', data: selectList },{ type: 'email', id: 'order-mail', label: '', placeholder: 'Ваш e-mail', required: true },{ type: 'text', id: 'order-name', label: '', placeholder: 'Ваше имя' },{ type: 'range', id: 'order-range', label: 'Sed ut perspiciatis, unde omnis iste natus', value: 50 },{ type: 'file', id: 'order-file', accept: '.pdf, .doc, .docx' }]
+
+  section.order#order
+    h2.order__title Оформление 
+      span.order__title--accent заказа
+    p.order__description Перед заполнением формы ознакомьтесь с нашей схемой работы!
+    +steps(orderSteps)
+    +form(orderFields)

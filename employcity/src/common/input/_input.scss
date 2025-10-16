@@ -1,0 +1,120 @@
+.input {
+	&--range {
+		.input__field {
+            -webkit-appearance: none;
+            width: 100%;
+            height: toRem(6);
+            padding: 0;
+            background: rgba(255, 255, 255, 0.7);
+            border: toRem(1) solid var(--light-color);
+            border-radius: toRem(3);
+            outline: none;
+
+            &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 24px;
+                height: 24px;
+                background: var(--darkblue-color);
+                cursor: pointer;
+                border-radius: 50%;
+                border: toRem(3) solid var(--navy-color);
+            }
+
+            &::-moz-range-thumb {
+                width: 24px;
+                height: 24px;
+                background: var(--darkblue-color);
+                cursor: pointer;
+                border-radius: 50%;
+                border: toRem(3) solid var(--navy-color);
+            }
+
+            &:focus {
+                background-color: rgba(255, 255, 255, 1);
+                transition: 0.2s var(--cubic);
+            }
+        }
+	}
+
+	&--upload {
+		.input__field {
+			display: none;
+		}
+	}
+
+    &__field {
+        width: 100%;
+        @include font-setting(var(--primary-font), toRem(14), normal, 400, var(--semidark-color));
+        padding: toRem(12) toRem(36) toRem(12) toRem(10);
+        border-radius: toRem(3);
+        border: none;
+        background-color: rgba(255, 255, 255, 0.85);
+        transition: 0.2s var(--cubic);
+    }
+
+    &__label {
+        width: 100%;
+        @include font-setting(var(--primary-font), toRem(14), normal, 400, var(--light-color));
+    }
+
+    &__percentage {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        @include font-setting(var(--primary-font), toRem(14), normal, 600, var(--light-color));
+    }
+
+    &__error {
+        display: none;
+        @include font-setting(var(--primary-font), toRem(10), 1, 400, red);
+    }
+
+    &__upload {
+        margin-bottom: toRem(4);
+    }
+
+    &__filename {
+        @include font-setting(var(--primary-font), toRem(12), normal, 400, rgba(255, 255, 255, 0.7));
+        margin-right: toRem(20);
+    }
+}
+
+
+@include min-screen(768px) {
+    .input {
+        &__field {
+            font-size: toRem(18);
+        }
+
+        &__label {
+            font-size: toRem(18);
+        }
+
+        &__percentage {
+            font-size: toRem(18);
+        }
+
+        &__error {
+            font-size: toRem(12);
+        }
+
+        &__upload {
+            margin-bottom: toRem(4);
+        }
+
+        &__filename {
+            font-size: toRem(14);
+        }
+    }
+}
+
+@include min-screen(1200px) {
+    .input {
+        &__field {
+            &:hover {
+                background-color: rgba(255, 255, 255, 1);
+                transition: 0.2s var(--cubic);
+                cursor: text;
+            }
+        }
+    }
+}

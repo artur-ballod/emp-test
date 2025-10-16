@@ -1,0 +1,10 @@
+mixin formSelect(data)
+  li.form__item.form__item--select
+    .select.form__select
+      button(type="button").select__head 
+        span.select__head-name Выберите тип системы
+        svg.select__head-icon
+          use(xlink:href=`#icon-arrow`)
+      ul(data-simplebar data-simplebar-auto-hide="false").select__list
+        each item in data
+          li(data-value=item.value).select__item= item.name

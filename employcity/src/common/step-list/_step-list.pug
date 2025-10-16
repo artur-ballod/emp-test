@@ -1,0 +1,8 @@
+mixin steps(orderSteps)
+  ul.steps.order__steps
+    each item in orderSteps
+      li.steps__item
+        span.steps__item-circle
+          svg.steps__item-icon
+            use(xlink:href=`#icon-${item.icon}`)
+        span.steps__item-name= item.name

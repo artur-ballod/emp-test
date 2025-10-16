@@ -1,0 +1,35 @@
+include @/common/button/_button
+
+mixin intro(data = {})
+  -
+    const {
+      subtitleParts = ['Lorem ipsum', 'dolor sit amet consectetur', 'adipiscing'],
+      description = 'At vero eos et accusamus et iusto odio dignissimos ducimus!',
+      list = [],
+      controls = []
+    } = data
+
+  section.intro
+    h1.intro__title
+      each part, i in subtitleParts
+        span.intro__title-part(class=i === 1 ? 'intro__title-part--accent' : '')= part
+
+    if description
+      p.intro__description= description
+
+    if list.length
+      ul.intro__list
+        each item in list
+          li.intro__list-item= item
+
+    if controls.length
+      .intro__controls
+        each btn in controls
+          +button({
+            tag: 'a',
+            href: btn.href,
+            text: btn.text,
+            mod: `${btn.mod || ''}`,
+            extraClass: btn.extraClass,
+            attrs: { target: btn.target || '_self' }
+          })

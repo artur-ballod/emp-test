@@ -1,0 +1,145 @@
+.intro {
+    position: relative;
+    width: 100%;
+    height: toRem(620);
+    @include flex-setting(column, flex-end, flex-start);
+    padding: 0 toPc(20px, 320px) toRem(48) toPc(20px, 320px);
+    background-image: image-set(url('@/assets/images/intro-bg-sm.webp') 1x, url('@/assets/images/intro-bg-sm_2x.webp') 2x);
+    background-position: right 40% bottom;
+    background-repeat: no-repeat;
+    background-size: toRem(960) toRem(620);
+    overflow: hidden;
+    z-index: 1;
+
+    &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: toRem(280);
+        background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+        transform: rotate(180deg);
+        z-index: 1;
+    }
+
+    &__title {
+        margin-bottom: toRem(16);
+        z-index: 2;
+
+        &-part {
+            @include font-setting(var(--primary-font), toRem(20), normal, 700, var(--darkblue-color));
+			text-align: left;
+        	text-transform: uppercase;
+
+			&--accent {
+				color: var(--black-color);
+			}
+        }
+    }
+
+    &__description {
+        margin-bottom: toRem(8);
+        @include font-setting(var(--primary-font), toRem(14), normal, 600, var(--black-color));
+        text-align: left;
+        z-index: 2;
+    }
+
+    &__list {
+        width: 100%;
+        @include flex-setting(column, flex-start, flex-start);
+        gap: toRem(4);
+        margin-bottom: toRem(20);
+        z-index: 2;
+
+        &-item {
+            position: relative;
+            padding-left: toRem(20);
+            @include font-setting(var(--primary-font), toRem(10), normal, 400, var(--black-color));
+            text-align: left;
+
+            &::before {
+                position: absolute;
+                content: '';
+                width: toRem(20);
+                height: toRem(12);
+                left: 0;
+                top: toRem(1);
+                background-image: url("data:image/svg+xml,%3Csvg width='5' height='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 .245h4.94v1.51H0V.245z' fill='%23000'/%3E%3C/svg%3E");
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: toRem(5) toRem(2);
+                
+            }
+        }
+    }
+
+    &__controls {
+        width: 100%;
+        @include flex-setting(column, flex-start, center);
+        gap: toRem(8);
+        z-index: 2;
+    }
+}
+
+@include min-screen(768px) {
+    .intro {
+        height: toRem(850);
+        justify-content: center;
+        padding: toRem(120) toPc(48px, 768px);
+        background-image: image-set(url('@/assets/images/intro-bg-lg.webp') 1x, url('@/assets/images/intro-bg-lg_2x.webp') 2x);
+        background-size: toRem(1920) toRem(850);
+
+        &::after {
+            display: none;
+        }
+    
+        &__title {
+            margin-bottom: toRem(80);
+            font-size: toRem(48);
+        }
+    
+        &__description {
+            margin-bottom: toRem(10);
+            font-size: toRem(20);
+            font-weight: 700;
+        }
+    
+        &__list {
+            gap: toRem(5);
+            margin-bottom: toRem(80);
+    
+            &-item {
+                padding-left: toRem(26);
+                font-size: toRem(20);
+    
+                &::before {
+                    top: toRem(5);
+                    height: toRem(20);
+                }
+            }
+        }
+    
+        &__controls {
+            flex-direction: row;
+            gap: toRem(30);
+        }
+    }
+}
+
+@include min-screen(1200px) {
+    .intro {
+        padding: 0 calc((100% - 392px) / 2) 0 calc((100% - 1170px) / 2);
+        background-position: 50% 50%;
+
+		&__controls {
+			max-width: toRem(396);
+		}
+    }
+}
+
+@include min-screen(1920px) {
+    .intro {
+        background-size: cover;
+    }
+}

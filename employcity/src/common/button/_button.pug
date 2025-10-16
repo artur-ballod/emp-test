@@ -1,0 +1,39 @@
+mixin button(data = {})
+  -
+    const {
+      tag = 'button',
+      href = '#',
+      type = 'button',
+      text = 'Кнопка',
+      mod = '',
+      extraClass = '',
+      attrs = {},
+      id = '',
+      accept = '',
+      iconOnly = false,
+      icon = '',
+      removeIcon = '',
+    } = data
+
+    const classes = ['button']
+    if (mod) classes.push(`button--${mod}`)
+    if (extraClass) classes.push(extraClass)
+    const classString = classes.join(' ')
+
+  if tag === 'a'
+    a(class=classString href=href target="_self")= text
+
+  else if tag === 'label'
+    label(for=id class=classString)
+      if icon
+        svg.button__icon
+          use(xlink:href=icon)
+        span.button__label= text || 'Прикрепить файл'
+        
+  else
+    button(type=type class=classString)
+      if iconOnly && icon
+        svg.button__icon
+          use(xlink:href=icon)
+      else
+        = text

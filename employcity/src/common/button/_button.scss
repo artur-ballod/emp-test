@@ -1,0 +1,116 @@
+.button {
+    @include flex-setting(column, center, center);
+    width: 100%;
+    padding: toRem(14) 0;
+    @include font-setting(var(--primary-font), toRem(13), normal, 400, var(--light-color));
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: toRem(4);
+    border: toRem(1) solid transparent;
+    transition: 0.2s var(--cubic);
+
+    &--dark {
+        background-color: var(--darkblue-color);
+        border-color: var(--outline-border);
+
+        &:active {
+            color: #2A2B30;
+            border-color: var(--outline-gray-border);
+            background-color: var(--bg-color);
+            transition: 0.2s var(--cubic);
+        }
+    }
+
+    &--light {
+        background-color: var(--bg-color);
+        color: #2A2B30;
+        border-color: var(--outline-gray-border);
+
+        &:active {
+            color: var(--light-color);
+            border-color: var(--bg-color);
+            background-color: var(--darkblue-color);
+            transition: 0.2s var(--cubic);
+        }
+    }
+
+    &--upload {
+        @include flex-setting(row, center, center);
+        gap: toRem(10);
+        width: 100%;
+        padding: toRem(10) 0;
+        border: toRem(2) solid var(--darkblue-color);
+        border-radius: toRem(3);
+        background-color: var(--light-color);
+        transition: 0.2s var(--cubic);
+
+        .button__icon {
+            width: toRem(16);
+            height: toRem(16);
+            fill: var(--semidark-color);
+        }
+
+        .button__label {
+            font-size: toRem(15);
+            line-height: toRem(24);
+            font-weight: 600;
+            color: var(--semidark-color);
+        }
+
+        &:active {
+            opacity: 0.7;
+            transition: 0.2s var(--cubic);
+        }
+    }
+
+    &--remove {
+        width: toRem(20);
+        height: toRem(20);
+        background-color: transparent;
+        padding: 0;
+        border: none;
+
+        display: none;
+
+        &.is-active {
+            display: inline-flex;
+        }
+
+        &:active {
+            fill: red;
+        }
+    }
+
+    &__icon {
+        width: toRem(20);
+        height: toRem(20);
+        fill: var(--light-color);
+        transition: 0.2s var(--cubic);
+    }
+
+    &__label {
+        @include font-setting(var(--primary-font), toRem(13), normal, 400, var(--light-color));
+		transition: 0.2s var(--cubic);
+    }
+}
+
+@include min-screen(768px) {
+    .button {
+        &--upload {
+			.button__icon {
+				width: toRem(17);
+				height: toRem(20);
+			}
+		}
+    }
+}
+
+@include min-screen(1200px) {
+	.button {
+		&:hover {
+			opacity: 0.8;
+			transition: 0.2s var(--cubic);
+			cursor: pointer;
+		}
+	}
+}

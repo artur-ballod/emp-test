@@ -1,0 +1,13 @@
+include @/common/select/_select
+include @/common/input/_input
+include @/common/button/_button
+
+mixin form(fields)
+	form.form.order__form(action="#" method="post" name="order-form")
+		ul.form__list
+			each field in fields
+				if field.type === 'select'
+					+formSelect(field.data)
+				else
+					+formField(field)
+		+button({type:'submit', text: 'Отправить', mod: 'dark', extraClass: 'form__submit'})

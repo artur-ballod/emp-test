@@ -1,0 +1,26 @@
+:root {
+    --bg-color: #fff;
+    --light-color: #fff;
+	--thingray-color: #c3c3c3;
+	--black-color: #000000;
+	--dark-color: rgba(16, 16, 29, 0.9);
+	--semidark-color: #272733;
+	--lightdark-color: #3D4050;
+	--blue-color: #43ABF0;
+	--darkblue-color: #3E9CDC;
+	--navy-color: #286690;
+	--gray-color: #BBBBBB;
+	--border-gray-color: #6F6D7B;
+	--outline-border: #fff;
+	--outline-dark-border: rgba(16, 16, 29, 0.9);
+	--outline-gray-border: #6F6D7B;
+    --primary-color: #007bff;
+	--primary-font: 'Lato', sans-serif;
+	--bg-day: #ffffff;
+	--bg-single-day: #B9B9BA;
+	--active-text-color: #000000;
+	--inactive-text-color: rgba(255, 255, 255, 0.4);
+	--cubic: cubic-bezier(0.4, 0.01, 0.165, 0.99);
+}
+
+$menuItems: 5;

@@ -1,0 +1,17 @@
+mixin nav(data = {})
+  -
+    const { 
+      list = [],
+      extraClass = ''
+    } = data
+
+    const classes = ['']
+    const baseClass = ['nav']
+    if (extraClass) classes.push(extraClass)
+    const classString = classes.join(' ')
+
+  nav(class=[baseClass, classString].join(''))
+    ul(class=`${baseClass}__list`)
+      each item in list
+        li(class=`${baseClass}__item`)
+          a(class=`${baseClass}__link` href=item.link target="_self")= item.name

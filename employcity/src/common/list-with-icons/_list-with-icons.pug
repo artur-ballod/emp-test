@@ -1,0 +1,16 @@
+mixin iconList(items = [], baseClass = 'list', addClass = '', modifier = '')
+  if items.length
+    -
+      const modClass = modifier ? `${addClass}--${modifier}` : ''
+    ul(class=[baseClass, addClass, modClass].join(' '))
+      each i in items
+        li(class=`${baseClass}__item` data-type=i.icon)
+          if i.link
+            a(class=`${baseClass}__item-link` href=i.link target="_blank")
+              svg(class=`${baseClass}__item-icon`)
+                use(xlink:href=`#icon-${i.icon}`)
+              span(class=`${baseClass}__item-name`)= i.name
+          else
+            svg(class=`${baseClass}__item-icon`)
+              use(xlink:href=`#icon-${i.icon}`)
+            span(class=`${baseClass}__item-name`)= i.name

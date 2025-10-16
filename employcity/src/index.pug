@@ -1,0 +1,52 @@
+include @/components/header/_header
+include @/components/intro/_intro
+include @/components/order/_order
+include @/components/footer/_footer
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="robots" content="noindex")
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    title Тестовое задание Employcity
+  body.body
+    //- header
+    +header({
+      navList: [
+        { name: 'Бизнес', link: '' },
+        { name: 'О нас', link: '' },
+        { name: 'Цены', link: '' },
+        { name: 'Оформить заказ', link: '#order' }
+      ]
+    })
+    //- main
+    main.main
+      +intro({
+        subtitleParts: ['Lorem ipsum ', 'dolor sit amet consectetur ', 'adipiscing'],
+        description: 'At vero eos et accusamus et iusto odio dignissimos ducimus!',
+        list: [
+          'Totam rem aperiam eaque ipsa',
+          'Sit voluptatem accusantium doloremque laudantium',
+          'Sed ut perspiciatis, unde omnis iste natus error'
+        ],
+        controls: [
+          { href: '#order', text: 'Заказать', mod: 'dark', extraClass: 'intro__controls-btn' },
+          { href: '#about', text: 'Подробнее', mod: 'light', extraClass: 'intro__controls-btn' }
+        ]
+      })
+      +orderForm()
+    //- footer
+    +footer({
+      company: 'LOREMIPSUM.NET',
+      paymentList: [
+        { icon: 'qiwi', name: 'Qiwi' },
+        { icon: 'ymoney', name: 'Yandex Money' },
+        { icon: 'wmoney', name: 'WebMoney' }
+      ],
+      contactsList: [
+        { icon: 'message', name: 'info@loremipsum.net', link: 'mailto:info@loremipsum.net' },
+        { icon: 'vk', name: 'Мы ВКонтакте', link: 'https://vk.com/loremipsum' }
+      ]
+    })
+    script(type="module" src="main.js")

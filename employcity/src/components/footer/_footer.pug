@@ -1,0 +1,15 @@
+include @/common/list-with-icons/_list-with-icons
+
+mixin footer(data = {})
+  -
+    const year = data.year || new Date().getFullYear()
+    const company = data.company || 'LOREMIPSUM.NET'
+    const payments = data.paymentList || []
+    const contacts = data.contactsList || []
+
+  footer.footer
+    span.footer__copyright
+      | © #{year} «#{company}» Все&nbsp;права&nbsp;защищены.
+
+    +iconList(payments, 'list', 'footer__data', 'payment')
+    +iconList(contacts, 'list', 'footer__data', 'contacts')

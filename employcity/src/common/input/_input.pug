@@ -1,0 +1,46 @@
+include @/common/button/_button
+
+mixin formField(field)
+  -
+    const {
+      id = '',
+      type = 'text',
+      label = '',
+      placeholder = '',
+      required = false,
+      value = '',
+      accept = '',
+      extraClass = '',
+      rangeId = '',
+      rangeLabel = ''
+    } = field
+
+  li.form__item.input(class=type === 'range' ? 'form__item--range input--range' : type === 'file' ? 'form__item--upload input--upload' : '')
+    if type !== 'file'
+      if label
+        label(for=id).input__label= label
+      if type === 'range'
+        input(type="range" min="0" max="100" value=value id=id).input__field.input__field--range
+        span.input__percentage #{value}%
+      else
+        input(type=type name=id id=id placeholder=placeholder required=required).input__field
+        if type === 'email'
+          span.input__error Введен некорректный email
+    else
+      input(type="file" name=id id=id accept=accept).input__field.input__field--upload
+      +button({
+        tag: 'label',
+        id: 'order-file',
+        text: 'Прикрепить файл',
+        icon: '#icon-file',
+        mod: 'upload',
+        extraClass: 'input__upload'
+      })
+      span.input__filename
+      +button({
+        id: 'file-remove',
+        iconOnly: true,
+        icon: '#icon-trash',
+        extraClass: 'input__remove',
+        mod: 'remove'
+      })
