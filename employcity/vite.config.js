@@ -11,7 +11,7 @@ export default defineConfig({
 		port: 3001,
 	},
 
-	// base: '/emp-test/',
+	base: '/emp-test/',
 
 	plugins: [
 		viteConvertPugInHtml(),

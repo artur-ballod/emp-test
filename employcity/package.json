@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@mish.dev/vite-convert-pug-in-html": "^2.0.0",
+    "esbuild": "0.25.11",
     "gh-pages": "^6.3.0",
     "pug": "^3.0.3",
     "pug-plugin": "^6.0.0",
